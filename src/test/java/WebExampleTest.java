@@ -21,7 +21,7 @@ public class WebExampleTest extends BaseTest {
 		dc.setCapability("experitest:accessKey", getAccessKey());
 		
 		/* Change this to run your test on different browsers. */
-		dc.setCapability(CapabilityType.BROWSER_NAME, "MicrosoftEdge");
+		dc.setCapability(CapabilityType.BROWSER_NAME, "chrome");
 		
 		driver = new RemoteWebDriver(new URL(getCloudUrl(), "/wd/hub"), dc);
 	}
@@ -41,8 +41,8 @@ public class WebExampleTest extends BaseTest {
 		driver.findElement(By.xpath("//input[@name='NAME']")).sendKeys("John");
 		driver.findElement(By.xpath("//input[@name='PHONE']")).sendKeys("1-234-5678");
 		driver.findElement(By.xpath("//input[@name='AMOUNT']")).sendKeys("1000");
-		driver.findElement(By.xpath("//input[@name='COUNTRY']/..")).click();
-		driver.findElement(By.xpath("//*[text()='INDIA']")).click();
+		driver.findElement(By.xpath("//*[@data-auto='country']")).click();
+        	driver.findElement(By.xpath("//*[text()='India']")).click();
 		driver.findElement(By.xpath("//*[@data-auto='transfer-button']")).click();
 	}
 	
